@@ -1,17 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import './App.css';
 import Modal from './components/Modal';
+import { showModal } from './actions/modalAction';
 
 function App(props) {
-  const { displayModal } = props;
+  const { displayModal, handleShowModal } = props;
   return (
     <div className="App">
       <button
         type="button"
         className="App__modal-button"
-        onClick={() => console.log("show modal now")}
+        onClick={handleShowModal}
       >
         Show Modal
       </button>
@@ -22,10 +24,14 @@ function App(props) {
 
 App.propTypes = {
   displayModal: PropTypes.bool.isRequired,
+  handleShowModal: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = state => ({
   displayModal: state.modal.display
 });
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = dispatch => bindActionCreators(
+  { handleShowModal: showModal }, dispatch);
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

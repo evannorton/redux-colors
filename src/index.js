@@ -7,10 +7,10 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
- <Provider store={configureStore()}>
-  <App />
- </Provider>,
- document.getElementById('root')
+    <Provider store={configureStore()}>
+        <App />
+    </Provider>,
+    document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change

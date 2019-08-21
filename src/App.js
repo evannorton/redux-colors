@@ -7,31 +7,31 @@ import Modal from './components/Modal';
 import { showModal } from './actions/modalAction';
 
 function App(props) {
-  const { displayModal, handleShowModal } = props;
-  return (
-    <div className="App">
-      <button
-        type="button"
-        className="App__modal-button"
-        onClick={handleShowModal}
-      >
-        Show Modal
+    const { displayModal, handleShowModal } = props;
+    return (
+        <div className="App">
+            <button
+                type="button"
+                className="App__modal-button"
+                onClick={handleShowModal}
+            >
+                Show Modal
       </button>
-      {displayModal && <Modal />}
-    </div>
-  );
+            {displayModal && <Modal />}
+        </div>
+    );
 }
 
 App.propTypes = {
-  displayModal: PropTypes.bool.isRequired,
-  handleShowModal: PropTypes.func.isRequired,
+    displayModal: PropTypes.bool.isRequired,
+    handleShowModal: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = state => ({
-  displayModal: state.modal.display
+    displayModal: state.modal.display
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators(
-  { handleShowModal: showModal }, dispatch);
+    { handleShowModal: showModal }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

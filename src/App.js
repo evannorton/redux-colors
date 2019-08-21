@@ -1,8 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import './App.css';
 import Modal from './components/Modal';
 
-function App() {
+function App(props) {
+  const { displayModal } = props;
   return (
     <div className="App">
       <button
@@ -12,9 +15,17 @@ function App() {
       >
         Show Modal
       </button>
-      <Modal />
+      {displayModal && <Modal />}
     </div>
   );
 }
 
-export default App;
+App.propTypes = {
+  displayModal: PropTypes.bool.isRequired,
+}
+
+const mapStateToProps = state => ({
+  displayModal: state.modal.display
+});
+
+export default connect(mapStateToProps)(App);

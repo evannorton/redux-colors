@@ -1,4 +1,3 @@
-import { mergeRight } from "ramda";
 import { CHANGE_COLORS } from "../actions/colorAction";
 import getRandomColor from "../getRandomColor";
 

@@ -3,35 +3,26 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import "./App.css";
-import Modal from "./components/Modal";
-import { showModal } from "./actions/modalAction";
+import { changeColors } from "./actions/colorAction";
+import ColorSquare from "./components/ColorSquare";
 
-function App(props) {
-    const { displayModal, handleShowModal } = props;
-    return (
-        <div className="App">
-            <button
-                type="button"
-                className="App__modal-button"
-                onClick={handleShowModal}
-            >
-                Show Modal
-      </button>
-            {displayModal && <Modal />}
-        </div>
-    );
-}
+const App = ({ colors, handleChangeColors }) =>
+    <div style={{ display: "flex" }} onClick={handleChangeColors} className="App">
+        <ColorSquare color={colors[0]} />
+        <ColorSquare color={colors[1]} />
+        <ColorSquare color={colors[2]} />
+        <ColorSquare color={colors[3]} />
+    </div>
 
 App.propTypes = {
-    displayModal: PropTypes.bool.isRequired,
-    handleShowModal: PropTypes.func.isRequired,
+    colors: PropTypes.array.isRequired,
+    handleChangeColors: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = state => ({
-    displayModal: state.modal.display
+    colors: state.color.colors
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators(
-    { handleShowModal: showModal }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ handleChangeColors: changeColors }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

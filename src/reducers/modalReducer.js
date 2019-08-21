@@ -1,5 +1,5 @@
-import { mergeRight } from 'ramda';
-import { SHOW_MODAL, HIDE_MODAL } from '../actions/modalAction';
+import { mergeRight } from "ramda";
+import { SHOW_MODAL, HIDE_MODAL } from "../actions/modalAction";
 
 const initialState = { display: false };
 

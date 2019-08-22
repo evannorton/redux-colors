@@ -6,11 +6,12 @@ import "./App.css";
 import { changeColors } from "./actions/colorAction";
 import ColorSquare from "./components/ColorSquare";
 import { toggleOrientation } from "./actions/orientationAction";
+import amount from "./amount";
 
 const App = ({ colors, handleChangeColors, handleToggleOrientation, row }) =>
     <div tabIndex={0} style={{ height: "100vh", width: "100%", display: "flex", flexDirection: row ? "row" : "column", overflow: "hidden" }} onKeyPress={handleChangeColors} onClick={handleToggleOrientation} className="App">
-        {new Array(100).fill(0).map((item, key) =>
-            <ColorSquare color={colors[key % 4]} />
+        {new Array(amount).fill(0).map((item, key) =>
+            <ColorSquare key={key} color={colors[key]} />
         )}
     </div>
 

@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/redux-colors/static/css/main.e9639a40.chunk.css",
+    "main.js": "/redux-colors/static/js/main.a900224e.chunk.js",
+    "main.js.map": "/redux-colors/static/js/main.a900224e.chunk.js.map",
+    "runtime~main.js": "/redux-colors/static/js/runtime~main.97d39e16.js",
+    "runtime~main.js.map": "/redux-colors/static/js/runtime~main.97d39e16.js.map",
+    "static/js/2.a0936545.chunk.js": "/redux-colors/static/js/2.a0936545.chunk.js",
+    "static/js/2.a0936545.chunk.js.map": "/redux-colors/static/js/2.a0936545.chunk.js.map",
+    "index.html": "/redux-colors/index.html",
+    "precache-manifest.8787b02a40965bdb0f620504a17f4737.js": "/redux-colors/precache-manifest.8787b02a40965bdb0f620504a17f4737.js",
+    "service-worker.js": "/redux-colors/service-worker.js",
+    "static/css/main.e9639a40.chunk.css.map": "/redux-colors/static/css/main.e9639a40.chunk.css.map"
+  }
+}

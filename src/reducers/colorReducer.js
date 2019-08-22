@@ -2,10 +2,10 @@ import { CHANGE_COLORS } from "../actions/colorAction";
 import getRandomColor from "../getRandomColor";
 import amount from "../amount";
 
-function getColors() {
-    let colors = new Array(amount).fill(0);
-    colors.forEach((color, i) => {
-        colors[i] = getRandomColor();
+const getColors = () => {
+    const colors = new Array(amount).fill(0);
+    colors.forEach((color, key) => {
+        colors[key] = getRandomColor();
     });
     return colors;
 }

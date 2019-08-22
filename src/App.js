@@ -8,11 +8,10 @@ import ColorSquare from "./components/ColorSquare";
 import { toggleOrientation } from "./actions/orientationAction";
 
 const App = ({ colors, handleChangeColors, handleToggleOrientation, row }) =>
-    <div tabIndex={0} style={{ height: "100vh", width: "100%", display: "flex", flexDirection: row ? "row" : "column" }} onKeyPress={handleChangeColors} onClick={handleToggleOrientation} className="App">
-        <ColorSquare color={colors[0]} />
-        <ColorSquare color={colors[1]} />
-        <ColorSquare color={colors[2]} />
-        <ColorSquare color={colors[3]} />
+    <div tabIndex={0} style={{ height: "100vh", width: "100%", display: "flex", flexDirection: row ? "row" : "column", overflow: "hidden" }} onKeyPress={handleChangeColors} onClick={handleToggleOrientation} className="App">
+        {new Array(100).fill(0).map((item, key) =>
+            <ColorSquare color={colors[key % 4]} />
+        )}
     </div>
 
 App.propTypes = {

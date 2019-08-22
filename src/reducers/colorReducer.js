@@ -3,7 +3,7 @@ import getRandomColor from "../getRandomColor";
 
 const initialState = { colors: ["red", "yellow", "blue", "green"] };
 
-export default function modal(state = initialState, action) {
+export default function color(state = initialState, action) {
     switch (action.type) {
         case CHANGE_COLORS:
             return { ...state, colors: [getRandomColor(), getRandomColor(), getRandomColor(), getRandomColor()] };

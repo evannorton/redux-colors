@@ -5,9 +5,10 @@ import { bindActionCreators } from "redux";
 import "./App.css";
 import { changeColors } from "./actions/colorAction";
 import ColorSquare from "./components/ColorSquare";
+import { toggleOrientation } from "./actions/orientationAction";
 
-const App = ({ colors, handleChangeColors }) =>
-    <div style={{ display: "flex" }} onClick={handleChangeColors} className="App">
+const App = ({ colors, handleChangeColors, handleToggleOrientation, row }) =>
+    <div tabIndex={0} style={{ height: "100vh", width: "100%", display: "flex", flexDirection: row ? "row" : "column" }} onKeyPress={handleChangeColors} onClick={handleToggleOrientation} className="App">
         <ColorSquare color={colors[0]} />
         <ColorSquare color={colors[1]} />
         <ColorSquare color={colors[2]} />
@@ -17,12 +18,15 @@ const App = ({ colors, handleChangeColors }) =>
 App.propTypes = {
     colors: PropTypes.array.isRequired,
     handleChangeColors: PropTypes.func.isRequired,
+    handleToggleOrientation: PropTypes.func.isRequired,
+    row: PropTypes.bool.isRequired
 }
 
 const mapStateToProps = state => ({
-    colors: state.color.colors
+    colors: state.color.colors,
+    row: state.orientation.row
 });
 
-const mapDispatchToProps = dispatch => bindActionCreators({ handleChangeColors: changeColors }, dispatch);
+const mapDispatchToProps = dispatch => bindActionCreators({ handleChangeColors: changeColors, handleToggleOrientation: toggleOrientation }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
